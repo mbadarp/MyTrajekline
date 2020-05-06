@@ -1,9 +1,8 @@
 package com.example.mytrajekline;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v.widget.CardView;
 import android.view.View;
+import android.widget.CardView;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
@@ -17,7 +16,7 @@ public class HomeActivity extends AppCompactActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gridLayout=(GridLayout)findViewById(R.id.mainGrid);
+        gridLayout=(GridLayout) gridLayout.findViewById();
 
         setSingleEvent(gridLayout);
 
