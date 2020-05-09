@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompactActivity{
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(MainActivity.this,"Clicked at index "+ finalI,
+                    Toast.makeText(TourActivity.this,"Clicked at index "+ finalI,
                             Toast.LENGTH_SHORT).show();
                 }
             });
