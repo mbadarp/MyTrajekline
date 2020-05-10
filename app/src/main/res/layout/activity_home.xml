@@ -7,17 +7,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:backgroundTintMode="add"
-
     android:orientation="vertical"
     android:weightSum="10"
     tools:context=".HomeActivity">
 
+    <!-- layout  -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
 
-
+        <!-- teks pada bagian atas  -->
         <TextView
             android:id="@+id/textGrid"
             android:layout_width="wrap_content"
@@ -29,6 +29,7 @@
 
     </RelativeLayout>
 
+    <!-- Grid menu kotak-kotak -->
     <GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="match_parent"

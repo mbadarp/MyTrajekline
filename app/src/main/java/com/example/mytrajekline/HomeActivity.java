@@ -1,28 +1,29 @@
 package com.example.mytrajekline;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CardView;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
-public class HomeActivity extends AppCompactActivity{
+
+public class HomeActivity extends AppCompatActivity {
 
     GridLayout gridLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
-        gridLayout=(GridLayout) gridLayout.findViewById();
+        gridLayout=(GridLayout) gridLayout.findViewById(R.id.mainGrid);
 
         setSingleEvent(gridLayout);
 
     }
 
-    // we are setting onClickListener for each element
+    // untuk onClickListener  pada setiap elemen
     private void setSingleEvent(GridLayout gridLayout) {
         for(int i = 0; i<gridLayout.getChildCount();i++){
             CardView cardView=(CardView)gridLayout.getChildAt(i);
@@ -30,7 +31,7 @@ public class HomeActivity extends AppCompactActivity{
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(TourActivity.this,"Clicked at index "+ finalI,
+                    Toast.makeText(HomeActivity.this,"Clicked at index "+ finalI,
                             Toast.LENGTH_SHORT).show();
                 }
             });
