@@ -1,20 +1,17 @@
 package com.example.mytrajekline;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.arvita.crudvolley.Adapter.AdapterData;
+import com.example.mytrajekline.Adapter.AdapterData;
 import com.arvita.crudvolley.Model.ModelData;
 import com.arvita.crudvolley.Util.AppController;
 import com.arvita.crudvolley.Util.ServerAPI;
@@ -40,8 +37,6 @@ public class BookingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bookinglist);
 
         mRecyclerview = (RecyclerView) findViewById(R.id.recyclerviewTemp);
-        btnInsert = (Button) findViewById(R.id.btn_insert);
-        btnDelete = (Button) findViewById(R.id.btn_delete);
         pd = new ProgressDialog(BookingListActivity.this);
         mItems = new ArrayList<>();
 
@@ -72,10 +67,15 @@ public class BookingListActivity extends AppCompatActivity {
                             try {
                                 JSONObject data = response.getJSONObject(i);
                                 ModelData md = new ModelData();
-                                md.setUsername(data.getString("username"));
-                                md.setGrup(data.getString("grup"));
-                                md.setNama(data.getString("nama"));
-                                md.setPassword(data.getString("password"));
+                                md.setId_pesan(data.getString("id_pesan"));
+                                md.setNama_customer(data.getString("nama_customer"));
+                                md.setTgl_pesan(data.getString("tgl_pesan"));
+                                md.setTgl_tour(data.getString("tgl_tour"));
+                                md.setNama_paket(data.getString("nama_paket"));
+                                md.setNama_wisata(data.getString("nama_wisata"));
+                                md.setHarga_paket(data.getString("harga_paket"));
+                                md.setHarga_paket(data.getString("harga_total"));
+                                md.setAction(data.getString("action"));
                                 mItems.add(md);
                             } catch (JSONException e) {
                                 e.printStackTrace();

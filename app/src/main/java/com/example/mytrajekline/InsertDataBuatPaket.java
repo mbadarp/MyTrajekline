@@ -33,24 +33,6 @@ public class InsertDataBuatPaket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buatpaket);
 
-        /*get data from intent*/
-        Intent data = getIntent();
-        final int update = data.getIntExtra("update",0);
-        String intent_nama_lengkap = data.getStringExtra("nama_lengkap");
-        String intent_email = data.getStringExtra("email");
-        String intent_kota_tujuan = data.getStringExtra("kota_tujuan");
-        String intent_jumlah_orang = data.getStringExtra("jumlah_orang");
-        String intent_lama_hari = data.getStringExtra("lama_hari");
-        String intent_tgl_berangkat = data.getStringExtra("tgl_berangkat");
-        String intent_tujuan_wisata = data.getStringExtra("tujuan_wisata");
-        String intent_tiket = data.getStringExtra("tiket");
-        String intent_penginapan = data.getStringExtra("penginapan");
-        String intent_fasilitas = data.getStringExtra("fasilitas");
-        String intent_status = data.getStringExtra("status");
-
-        /*end get data from intent*/
-
-
         nama_lengkap = (EditText) findViewById(R.id.inp_namalengkap);
         email = (EditText) findViewById(R.id.inp_email);
         kota_tujuan = (EditText) findViewById(R.id.inp_kotatujuan);
@@ -66,23 +48,6 @@ public class InsertDataBuatPaket extends AppCompatActivity {
         btnsimpan = (Button) findViewById(R.id.btn_simpan);
         pd = new ProgressDialog(InsertDataBuatPaket.this);
 
-        /*kondisi update / insert*/
-        if(update == 1)
-        {
-            btnsimpan.setText("Update Data");
-            nama_lengkap.setText(intent_nama_lengkap);
-            email.setText(intent_email);
-            kota_tujuan.setText(intent_kota_tujuan);
-            jumlah_orang.setText(intent_jumlah_orang);
-            lama_hari.setText(intent_lama_hari);
-            tgl_berangkat.setText(intent_tgl_berangkat);
-            tujuan_wisata.setText(intent_tujuan_wisata);
-            tiket.setText(intent_tiket);
-            penginapan.setText(intent_penginapan);
-            fasilitas.setText(intent_fasilitas);
-            status.setText(intent_status);
-        }
-
 
         btnsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,19 +56,22 @@ public class InsertDataBuatPaket extends AppCompatActivity {
                     simpanData();
 
             }
-        });
+        };
 
         btnbatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent main = new Intent(InsertDataBuatPaket.this,MainActivity.class);
+                Intent main = new Intent(InsertDataBuatPaket.this);
                 startActivity(main);
+            }
+
+            private void startActivity(Intent main) {
             }
         });
     }
 
-
-
+    private Object findViewById(int inp_namalengkap) {
+    }
 
 
     private void simpanData()
@@ -138,11 +106,17 @@ public class InsertDataBuatPaket extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<>();
-                map.put("username",username.getText().toString());
-                map.put("grup",grup.getText().toString());
-                map.put("nama",nama.getText().toString());
-                map.put("password",password.getText().toString());
-
+                map.put("nama lengkap",nama_lengkap.getText().toString());
+                map.put("email",email.getText().toString());
+                map.put("kota tujuan",kota_tujuan.getText().toString());
+                map.put("jumlah orang",jumlah_orang.getText().toString());
+                map.put("lama hari",lama_hari.getText().toString());
+                map.put("tanggal berangkat",tgl_berangkat.getText().toString());
+                map.put("tujuan wisata",tujuan_wisata.getText().toString());
+                map.put("tiket",tiket.getText().toString());
+                map.put("penginapan",penginapan.getText().toString());
+                map.put("fasilitas",fasilitas.getText().toString());
+                map.put("status",status.getText().toString());
                 return map;
             }
         };
